@@ -19,12 +19,13 @@ public:
   void switchACpower(bool on);
   void setCanDebug(bool on);
   void setDebug(bool on);
-  
+
   void tick();
   void bob();
   bool isConnected();
+  int getmAmps();
   float voutput = 0;
-  float ioutput = 0;
+  int ioutput = 0;
   MCP_CAN *can0;
 
 private:
@@ -36,12 +37,11 @@ private:
   void sendSync();
   void sendSync2();
   void gimme5();
-  void sendcommand(long unsigned int&, uint8_t*);
+  void sendcommand(long unsigned int &, uint8_t *);
   void candecode();
   void hex2bin(uint8_t *out, const char *in, size_t *size);
-  void hex82bin(long unsigned int&, const char*);
+  void hex82bin(long unsigned int &, const char *);
 
-  
   int PIN_INTERRUPT;
   int _cs;
   bool _talking = 1;
